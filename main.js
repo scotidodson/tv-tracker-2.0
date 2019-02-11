@@ -6,7 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
   for(const board of boards) {
     board.addEventListener("dragstart", storeDragged)
     board.addEventListener("dragover", dragOver)
-    board.addEventListener("dragenter", dragEnter)
     board.addEventListener("drop", drop)
   }
 
@@ -18,13 +17,12 @@ document.addEventListener("DOMContentLoaded", () => {
     e.preventDefault();
   }
 
-  function dragEnter(e) {
-    e.preventDefault()
-  }
   function drop(e) {
     e.preventDefault();
     if ( e.target.className === "watch-column" && e.target !== dragged.parentNode ) {
       dragged.parentNode.removeChild(dragged);
+      e.target.appendChild(dragged);
+    } else if (e.target.className === "watch-column") {
       e.target.appendChild(dragged);
     }
   }
