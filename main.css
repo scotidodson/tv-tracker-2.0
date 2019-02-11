@@ -16,10 +16,18 @@
   padding: 1%;
 }
 
+.no-drops {
+  background: red;
+  width: 600px;
+  height: 200px;
+  position: relative;
+}
+
 .card {
   background: #000;
   color: #fff;
   text-align: center;
   width: 80%;
   margin: 10px 5px;
+  cursor: grab;
 }
